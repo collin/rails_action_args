@@ -1,3 +1,10 @@
+Not working yet, but close :) Four failing tests.
+
+Tests currently assume this directory is living inside the core rails repo
+along side actionpack/ activerecord/ etc.
+
+Going to figure out a better place to put it once I get the tests passing.
+
 rails-action-args
 ================
 

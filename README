@@ -22,6 +22,7 @@ Hitting "/foo/bar" will raise a BadRequest (Status 400) error.
 
 {{[
 class Foo < ApplicationController::Base
+  include AbstractController::ActionArgs
   def bar(baz, bat = "hola")
     "#{baz} #{bat}"
   end
@@ -38,6 +39,7 @@ Hitting "/foo/bar" will still raise a BadRequest.
 
 {{[
 class Foo < ApplicationController::Base
+  include AbstractController::ActionArgs
   def bar(one, two = "dos", three = "tres")
     "#{one} #{two} #{three}"
   end

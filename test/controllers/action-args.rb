@@ -1,6 +1,6 @@
 module ExtraActions
   def self.included(base)
-    base.show_action(:funky_inherited_method)
+#    base.show_action(:funky_inherited_method)
   end
   
   def funky_inherited_method(foo, bar)
@@ -8,47 +8,45 @@ module ExtraActions
   end
 end
 
+#module Awesome
+#  class NestedActionArgsController < ActionController::Base
+#    include AbstractController::ActionArgs
+#    def index(foo)
+#      foo.to_s
+#    end
+#  end
+#end
+
 class ActionArgsController < ActionController::Base
-  include ActionArgs
-end
-
-module Awesome
-  class ActionArgs < ActionArgsController
-    def index(foo)
-      foo.to_s
-    end
-  end
-end
-
-class ActionArgs < ActionArgsController
+  include AbstractController::ActionArgs
   include ExtraActions
 
   def nada
-    render :string => "NADA"
+    render :text => "NADA"
   end
   
   def index(foo)
-    render :string => foo
+    render :text => foo
   end
   
   def multi(foo, bar)
-    render :string => "#{foo} #{bar}"
+    render :text => "#{foo} #{bar}"
   end
   
   def defaults(foo, bar = "bar")
-    render :string => "#{foo} #{bar}"
+    render :text => "#{foo} #{bar}"
   end
   
   def defaults_mixed(foo, bar ="bar", baz = "baz")
-    render :string => "#{foo} #{bar} #{baz}"
+    render :text => "#{foo} #{bar} #{baz}"
   end
   
   define_method :dynamic_define_method do
-    render :string => "mos def"
+    render :text => "mos def"
   end
     
   def with_default_nil(foo, bar = nil)
-    render :string => "#{foo} #{bar}"
+    render :text => "#{foo} #{bar}"
   end
   
 end

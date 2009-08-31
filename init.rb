@@ -1,1 +1,1 @@
-require 'lib/rails_action_args.rb'
+require 'rails_action_args'

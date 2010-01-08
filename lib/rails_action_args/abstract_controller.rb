@@ -10,15 +10,10 @@ module AbstractController
       rescue_from(ActionArgs::BadRequest) { render :text => "BadRequest", :status => 400 }
     end
     
-    # FIXME: RuntimeError
-    # MRI action args gets a [nil] sexp for [ApplicationController, "_rescue_action"]
-    # there must be a correct way so that this never happens
-    # :api: private
     def send_action(action_name)
       send(action_name, *action_args_for(action_name))
-    rescue RuntimeError
-      Rails.logger.warn "#{__FILE__}:#{__LINE__} Rescuing RuntimeError in ActionArgs"
-      send(action_name)
+    ensure
+      super
     end
   
     # :api: private

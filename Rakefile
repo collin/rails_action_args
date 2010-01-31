@@ -10,7 +10,7 @@ begin
     gem.email = "collintmiller@gmail.com"
     gem.homepage = "http://github.com/collin/rails_action_args"
     gem.authors = ["Collin Miller"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.add_development_dependency "shoulda", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new

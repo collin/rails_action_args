@@ -83,6 +83,6 @@ module GetArgs
     klass, meth = self.to_s.split(/ /).to_a[1][0..-2].split("#")
     # Remove stupidity for #<Method: Class(Object)#foo>
     klass = $` if klass =~ /\(/
-    ParseTreeArray.translate(Object.full_const_get(klass), meth).get_args
+    ParseTreeArray.translate(klass.constantize, meth).get_args
   end
 end

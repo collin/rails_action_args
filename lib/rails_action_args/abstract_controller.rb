@@ -1,3 +1,4 @@
+require 'rails_action_args/get_args'
 # Marking entire api private because I don't want to think about it right now.
 module AbstractController
   module ActionArgs
@@ -11,8 +12,6 @@ module AbstractController
     
     def send_action(action_name)
       send(action_name, *action_args_for(action_name))
-    ensure
-      super
     end
   
     # :api: private

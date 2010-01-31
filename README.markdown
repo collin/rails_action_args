@@ -1,35 +1,48 @@
-Not working yet, but close :) Four failing tests.
+It's time for action arguments in Rails3.
 
-rails-action-args
+rails_action_args
 ================
 
 A plugin for the Rails framework that provides support for arguments to actions that 
 come in from the query.
 
+==== Install
+
+As a system gem:
+
+    gem install rails_action_args
+    
+Or in a gemfile:
+
+    gem "rails_action_args", "0.1.2"
+
+When installed as a gem:
+
+    require "rails_action_args/plugin"
+
+Or as a plugin
+    
+    script/plugin install git://github.com/collin/rails_action_args.git
+
 ==== Basics
 
-{{[
-class Foo < ApplicationController::Base
-  def bar(baz)
-    bar
-  end
-end
-]}}
+    class Foo < ApplicationController::Base
+      def bar(baz)
+        bar
+      end
+    end
 
 Hitting "/foo/bar?baz=bat" will call foo("bat").
 
-Hitting "/foo/bar" will raise a BadRequest (Status 400) error.
+Hitting "/foo/bar" will raise an AbstractController::ActionArgs::InvalidActionArgs exception
 
 ==== Defaults
 
-{{[
-class Foo < ApplicationController::Base
-  include AbstractController::ActionArgs
-  def bar(baz, bat = "hola")
-    "#{baz} #{bat}"
-  end
-end
-]}}
+    class Foo < ApplicationController::Base
+      def bar(baz, bat = "hola")
+        "#{baz} #{bat}"
+      end
+    end
 
 Hitting "/foo/bar?baz=bat" will call foo("bat", "hola")
 
@@ -39,15 +52,12 @@ Hitting "/foo/bar" will still raise a BadRequest.
 
 ==== Out of order defaults
 
-{{[
-class Foo < ApplicationController::Base
-  include AbstractController::ActionArgs
-  def bar(one, two = "dos", three = "tres")
-    "#{one} #{two} #{three}"
-  end
-end
-]}}
+    class Foo < ApplicationController::Base
+      def bar(one, two = "dos", three = "tres")
+        "#{one} #{two} #{three}"
+      end
+    end
 
 The interesting thing here is that hitting "/foo/bar?one=uno&three=three" will call
 foo("uno", "dos", "three"). In other words, the defaults can be in any order, and 
-rails-action-args will figure out where to fill in the holes.
+rails_action_args will figure out where to fill in the holes.

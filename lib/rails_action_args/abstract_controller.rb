@@ -31,7 +31,7 @@ module AbstractController
           arg = arg
           param = params.key?(arg.to_sym)
           unless param || (defaults && defaults.include?(arg))
-            raise InvalidActionArgs("No value or default value supplied for action arg: #{arg}")
+            raise InvalidActionArgs.new("No value or default value supplied for action arg: #{arg}")
           else
             param ? params[arg.to_sym] : default
           end

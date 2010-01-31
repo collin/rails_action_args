@@ -2,12 +2,11 @@
 module AbstractController
   module ActionArgs
     extend ActiveSupport::Concern
-    class BadRequest < StandardError; end
+    class InvalidActionArgs < StandardError; end
     
     included do
       cattr_accessor :action_argument_list
       extend ClassMethods
-      rescue_from(ActionArgs::BadRequest) { render :text => "BadRequest", :status => 400 }
     end
     
     def send_action(action_name)
@@ -30,9 +29,12 @@ module AbstractController
         
         arguments.map do |arg, default|
           arg = arg
-          p = params.key?(arg.to_sym)
-          raise BadRequest unless p || (defaults && defaults.include?(arg))
-          p ? params[arg.to_sym] : default
+          param = params.key?(arg.to_sym)
+          unless param || (defaults && defaults.include?(arg))
+            raise InvalidActionArgs("No value or default value supplied for action arg: #{arg}")
+          else
+            param ? params[arg.to_sym] : default
+          end
         end
       end
       

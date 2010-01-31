@@ -1,12 +1,11 @@
 It's time for action arguments in Rails3.
 
-rails_action_args
-================
+# rails_action_args
 
 A plugin for the Rails framework that provides support for arguments to actions that 
 come in from the query.
 
-==== Install
+### Install
 
 As a system gem:
 
@@ -24,7 +23,7 @@ Or as a plugin
     
     script/plugin install git://github.com/collin/rails_action_args.git
 
-==== Basics
+### Basics
 
     class Foo < ApplicationController::Base
       def bar(baz)
@@ -36,7 +35,7 @@ Hitting "/foo/bar?baz=bat" will call foo("bat").
 
 Hitting "/foo/bar" will raise an AbstractController::ActionArgs::InvalidActionArgs exception
 
-==== Defaults
+### Defaults
 
     class Foo < ApplicationController::Base
       def bar(baz, bat = "hola")
@@ -50,7 +49,7 @@ Hitting "/foo/bar?baz=bat&bat=whaa" will call foo("bat", "whaa")
 
 Hitting "/foo/bar" will still raise a BadRequest.
 
-==== Out of order defaults
+#### Out of order defaults
 
     class Foo < ApplicationController::Base
       def bar(one, two = "dos", three = "tres")

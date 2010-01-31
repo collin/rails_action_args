@@ -5,12 +5,22 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "rails_action_args"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{A port of merb-action-args to rails}
+    gem.description = %Q{Big thanks to the original authors. Let me know if I missed you. Action args rocks and you deserve the credit :)}
     gem.email = "collintmiller@gmail.com"
     gem.homepage = "http://github.com/collin/rails_action_args"
-    gem.authors = ["Collin Miller"]
-    gem.add_development_dependency "shoulda", ">= 0"
+    gem.authors = [
+      "ezmobius",
+      "mattetti",
+      "maiha",
+      "Yehuda Katz",
+      "Andy Delcambre",
+      "Janne Asmala",
+      "Collin Miller"
+    ]
+    gem.add_dependency "actionpack",         ">=3.0.pre"
+    gem.add_dependency "ParseTree",          ">=3.0.4"
+    gem.add_dependency "ruby2ruby",          ">=1.2.4"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new

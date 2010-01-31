@@ -1,7 +1,8 @@
+require 'rails'
 module Rails
   module ActionArgs
-    class Railtie < Rails::Railtie
-      railtie_name :action_args
+    class Plugin < Rails::Plugin
+      plugin_name :action_args
       
       config.after_initialize do |app|
         class << ::ActionController::Base

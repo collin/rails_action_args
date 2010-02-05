@@ -76,6 +76,7 @@ class ActionArgsTest < Test::Unit::TestCase
   end
   
   def test_handle_a_nested_class
+    raise "Pending"
     get "/awesome_nested_action_args/index?foo=bar"
     assert_equal "bar", last_response.body
   end
@@ -117,6 +118,7 @@ class ActionArgsTest < Test::Unit::TestCase
   end
   
   def test_inherit_actions_for_use_with_action_arguments
+    raise "Pending"
     get "/action_args/funky_inherited_method?foo=bar&bar=baz"
     assert_equal "bar baz", last_response.body
   end

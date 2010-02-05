@@ -22,9 +22,7 @@ module AbstractController
     module ClassMethods
       # :api: private
       def action_args_for(action_name, params)
-        self.action_argument_list ||= {}
-        action_argument_list[action_name] ||= extract_action_args_for(action_name)
-        arguments, defaults = action_argument_list[action_name]
+        arguments, defaults = extract_action_args_for(action_name)
         
         arguments.map do |arg, default|
           arg = arg

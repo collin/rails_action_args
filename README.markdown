@@ -13,7 +13,7 @@ As a system gem:
     
 Or in a gemfile:
 
-    gem "rails_action_args", "0.1.2"
+    gem "rails_action_args", "0.1.4"
 
 When installed as a gem:
 

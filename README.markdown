@@ -15,7 +15,7 @@ As a system gem:
     
 Or in a gemfile:
 
-    gem "rails_action_args", "0.1.4"
+    gem "rails_action_args", "0.1.5"
 
 When installed as a gem:
 

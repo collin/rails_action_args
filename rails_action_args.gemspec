@@ -5,14 +5,13 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rails_action_args}
-  s.version = "0.1.4"
+  s.version = "0.1.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["ezmobius", "mattetti", "maiha", "Yehuda Katz", "Andy Delcambre", "Janne Asmala", "Collin Miller"]
-  s.date = %q{2010-02-05}
+  s.date = %q{2010-02-08}
   s.description = %q{Big thanks to the original authors. Let me know if I missed you. Action args rocks and you deserve the credit :)}
   s.email = %q{collintmiller@gmail.com}
-  s.executables = ["autotest", "convert_to_should_syntax", "erubis", "multigem", "multiruby", "multiruby_setup", "parse_tree_abc", "parse_tree_audit", "parse_tree_deps", "parse_tree_show", "r2r_show", "rackup", "rake", "ruby_parse", "unit_diff", "zentest"]
   s.extra_rdoc_files = [
     "LICENSE",
      "README.markdown",

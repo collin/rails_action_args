@@ -1,5 +1,7 @@
 It's time for action arguments in Rails3.
 
+Big thanks go out to: ezmobius, mattetti, maiha, Yehuda Katz, Andy Delcambre, Janne Asmala. Did I miss any merb-action-args contributors?
+
 # rails_action_args
 
 A plugin for the Rails framework that provides support for arguments to actions that 
@@ -13,7 +15,7 @@ As a system gem:
     
 Or in a gemfile:
 
-    gem "rails_action_args", "0.1.2"
+    gem "rails_action_args", "0.1.4"
 
 When installed as a gem:
 
